@@ -6,7 +6,7 @@
 /*   By: ageels <ageels@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 11:21:07 by ageels        #+#    #+#                 */
-/*   Updated: 2023/08/28 13:22:57 by ageels        ########   odam.nl         */
+/*   Updated: 2023/09/04 18:06:55 by ageels        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int main() {
 	easyfind(myvector, number);
 	easyfind(myarray, number);
 	easyfind(emptyvector, number);
-	//std::cout << "vector " << easyfind(myvector, number).begin() << std::endl;
-	//std::cout << "number " << easyfind(myarray, number).begin() << std::endl;
+	std::cout << "vector " << *easyfind(myvector, number) << std::endl;
+	std::cout << "number " << *easyfind(myarray, number) << std::endl;
 	
 	std::cout << " - - - THE END - - - " << std::endl;
 	return (0);
