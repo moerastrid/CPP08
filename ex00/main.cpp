@@ -38,6 +38,7 @@ int main() {
 			std::cerr << e.what() << std::endl;
 		}
 	}
+	
 	try {
 		std::cout << std::endl << "Empty container : " << std::endl;
 		std::vector<int> emptyvector;
