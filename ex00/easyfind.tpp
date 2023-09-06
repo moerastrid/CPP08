@@ -13,13 +13,6 @@
 #ifndef EASYFIND_TPP
 #define EASYFIND_TPP
 
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <deque>
-#include <list>
-#include <array>
-
 #include "easyfind.hpp"
 
 template<typename T>
