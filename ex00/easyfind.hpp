@@ -19,13 +19,19 @@
 #include <deque>
 #include <list>
 #include <array>
-
-#include "easyfind.tpp"
+#include <exception>
 
 template<typename T>
 typename T::iterator easyfind(T cont, int n);
 
-//template<typename T>
-//int easyfind(T cont, int n);
+class EmptyContainerException : public std::exception {
+    virtual const char * what() const throw() ;
+} ;
+
+class NoMatchContainerException : public std::exception {
+    virtual const char * what() const throw() ;
+} ;
+
+#include "easyfind.tpp"
 
 #endif

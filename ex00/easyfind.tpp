@@ -20,28 +20,28 @@
 #include <list>
 #include <array>
 
+#include "easyfind.hpp"
+
 template<typename T>
 typename T::iterator easyfind(T cont, int n) {
+	typename T::iterator temp;
 
-	return( std::find(cont.begin(), cont.end(), n));
-
+	if (cont.empty() == true) {
+		throw EmptyContainerException();
+	}
+	temp = std::find(cont.begin(), cont.end(), n);
+	if (temp == cont.end())
+		throw NoMatchContainerException();
+	else
+		return (temp);
 }
 
-//int easyfind(T cont, int n) {
-//	if (cont.empty())
-//	{
-//		std::cout << "Container empty :(" << std::endl;
-//		return (0);
-//	}
-//	for (unsigned long i = 0; i < cont.size(); i++) {
-//		std::cout << i << " : " << cont[i] << std::endl;
-//		if (cont[i] == n) {
-//			std::cout << "FOUND ! " << i << " : " << cont[i] << std::endl;
-//			return (cont[i]);
-//		}
-//	}
-//	std::cout << "not found" << std::endl;
-//	return (0);
-//};
+const char * EmptyContainerException::what() const throw() {
+	return ("EasyFind exception : empty container");
+}
+
+const char * NoMatchContainerException::what() const throw() {
+	return ("EasyFind exception : no matching container found ");
+}
 
 #endif

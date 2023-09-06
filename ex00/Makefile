@@ -12,7 +12,7 @@
 
 NAME = Easy_find
 
-FLAGS = -I. -Wall -Werror -Wextra -std=c++98
+FLAGS = -I. -Wall -Werror -Wextra -std=c++11
 
 HDR = easyfind.hpp \
 	easyfind.tpp

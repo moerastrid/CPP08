@@ -14,23 +14,37 @@
 #include <iostream>
 #include <vector>
 #include <array>
+#include <exception>
 
 int main() {
-	int number = 1;
-
-	std::vector<int> myvector;
-	std::vector<int> emptyvector;
-	for (int i(2); i<=4; i++) {
-		myvector.push_back(i);
+	std::vector<int>	myvec;
+	
+	for (int i(2); i<=3; i++) {
+		myvec.push_back(i);
 	}
+	std::array<int, 5> myarr = {0, 1, 2, 3, 4};
 
-	std::array<int, 5> myarray = {0, 1, 2, 3, 4};
-
-	easyfind(myvector, number);
-	easyfind(myarray, number);
-	easyfind(emptyvector, number);
-	std::cout << "vector " << *easyfind(myvector, number) << std::endl;
-	std::cout << "number " << *easyfind(myarray, number) << std::endl;
+	for (int num = -1; num <= 5; num++)
+	{
+		std::cout << "Number : " << num << std::endl;
+		try {
+			std::cout << "vec " << *easyfind(myvec, num) << std::endl;
+		} catch(std::exception &e) {
+			std::cerr << e.what() << std::endl;
+		}
+		try {
+			std::cout << "arr " << *easyfind(myarr, num) << std::endl << std::endl;
+		} catch(std::exception &e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	try {
+		std::cout << std::endl << "Empty container : " << std::endl;
+		std::vector<int> emptyvector;
+		easyfind(emptyvector, 42);
+	} catch(std::exception& e) {
+		std::cerr << e.what() << std::endl;
+	}
 	
 	std::cout << " - - - THE END - - - " << std::endl;
 	return (0);
