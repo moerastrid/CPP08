@@ -2,23 +2,35 @@
 #define SPAN_HPP
 
 #include <iostream>
+#include <vector>
+#include <string>
 
 class Span {
 	private :
-		unsigned int		_size;
+		unsigned int		_max_size;
 		unsigned long int	_shortest;
 		unsigned long int	_longest;
-		Span();		//default constructor
+		std::vector<int>	_store;
+
+		Span();								//default constructor
+		Span(const Span &src);				//copy constructor
+		Span &operator=(const Span &src);	// = sign operator
+		void	message(std::string str);
 
 	public :
-		Span(unsigned int size);
+		Span(unsigned int max_size);
 		~Span();	//default destructor
-		Span &operator=(const Span &src);
-		Span(const Span &src);
 		
+		void				addNumber(int n);
 		unsigned long int	shortestSpan();
 		unsigned long int	longestSpan();
 
+		class SpanOverloadException : public std::exception {
+    		virtual const char * what() const throw() ;
+		};
+		class SpanNotPossibleException : public std::exception {
+    		virtual const char * what() const throw() ;
+		};
 };
 
 #endif
