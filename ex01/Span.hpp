@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 class Span {
 	private :
@@ -22,7 +23,7 @@ class Span {
 		~Span();	//default destructor
 		
 		void				addNumber(int n);
-		unsigned long int	shortestSpan();
+		long int	shortestSpan();
 		unsigned long int	longestSpan();
 
 		class SpanOverloadException : public std::exception {

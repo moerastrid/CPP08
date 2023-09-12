@@ -45,17 +45,29 @@ void	Span::addNumber(int n) {
 	if (_store.size() == _max_size)
 		throw SpanOverloadException();
 	_store.push_back(n);
-	
+
 	message("add number");
 }
 
-unsigned long int	Span::shortestSpan() {
-	unsigned long int answer = 0;
+long int	Span::shortestSpan() {
+	long int answer;
 
 	message("shortest");
 	unsigned int size = _store.size();
 	if (size == 0 || size == 1)
 		throw SpanNotPossibleException();
+
+	std::sort(_store.begin(), _store.end());
+
+	long int	temp_one = _store[0];
+	long int	temp_two = _store[1];
+	answer = temp_two - temp_one;
+	for (unsigned int i(2); i < size; i++) {
+		temp_one = temp_two;
+		temp_two = _store[i];
+		if (temp_two - temp_one < answer)
+			answer = temp_two - temp_one;
+	}
 	return (answer);
 }
 
