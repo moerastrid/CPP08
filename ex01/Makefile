@@ -12,7 +12,7 @@
 
 NAME = Span
 
-FLAGS = -I. -Wall -Werror -Wextra -std=c++11
+FLAGS = -I. -Wall -Werror -Wextra -std=c++20
 
 HDR = Span.hpp
 
