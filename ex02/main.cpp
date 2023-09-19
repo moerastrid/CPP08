@@ -15,16 +15,15 @@ int	exercise_test(){
 	mstack.push(737);
 	mstack.push(0);
 
-	MutantStack<int>::iterator it = mstack.begin();
-	MutantStack<int>::iterator ite = mstack.end();
+	// MutantStack<int>::iterator it = mstack.begin();
+	// MutantStack<int>::iterator ite = mstack.end();
 	// ++it;
 	// --it;
-	while (it != ite) {
-		std::cout << "\x1B[35m" << *it << "\x1B[0m" << std::endl;
-		std::cout << *it << std::endl;
-		++it;
-	}
-	std::stack<int> s(mstack);
+	// while (it != ite) {
+	// 	std::cout << "\x1B[35m" << *it << "\x1B[0m" << std::endl;
+	// 	++it;
+	// }
+	// std::stack<int> s(mstack);
 	return 0;
 }
 
@@ -64,6 +63,15 @@ int main() {
 	for (int i(0); i < 60; i++) {
 		test.push(i * 3);
 	}
+
+	MutantStack<int>::iterator it = test.begin();
+	std::cout << &it << std::endl;
+	std::cout << *it << std::endl;
+	it++;
+	std::cout << *it << std::endl;
+	it++;
+	std::cout << *it << std::endl;
+	std::cout << &it << std::endl;
 
 	
 

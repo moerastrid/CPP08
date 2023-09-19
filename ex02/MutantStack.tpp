@@ -60,14 +60,20 @@ typename MutantStack<T, Container>::iterator	&MutantStack<T, Container>::iterato
 }
 
 template <typename T, class Container>
-typename MutantStack<T, Container>::iterator    begin(void) {
-    return (MutantStack<T, Container>::iterator::begin());
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin(void) {
+    return (c.begin());
 }
 
-template <typename T, class Container>
-typename MutantStack<T, Container>::iterator    end(void) {
-    return (MutantStack<T, Container>::iterator::end());
-}
+
+// template <typename T, class Container>
+// typename MutantStack<T, Container>::iterator    begin(void) {
+//     return (begin());
+// }
+
+// template <typename T, class Container>
+// typename MutantStack<T, Container>::iterator    end(void) {
+//     return (MutantStack<T, Container>::iterator::end());
+// }
 
 
 #endif
