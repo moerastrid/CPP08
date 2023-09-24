@@ -3,58 +3,35 @@
 
 #include <iostream>
 #include <stack>
-#include <string>
 #include <deque>
 #include <iterator>
 
-template<typename T, class Container = std::deque<T>>
-class MutantStack : public std::stack<T, Container> {
+template<typename T>
+class MutantStack : public std::stack<T> {
 	private :
-		Container	c;
+        // my debug message
 		void	message(std::string str);
 
+        // define 'stack' from default stack
+        typedef std::stack<T> stack;
+
 	public :
+        // orthodox canonoical form
 		MutantStack();								// default constructor
-		~MutantStack();								// default destructor
-		MutantStack(MutantStack &src);				//copy constructor
-		MutantStack	&operator= (MutantStack &src);	// assignment operator
+		~MutantStack();						        // default destructor
+		MutantStack(MutantStack const &src);				// copy constructor
+		MutantStack	&operator= (MutantStack const &src);	// assignment operator
 
-		class	iterator : public Container::iterator {
-			private :
-				void	message(std::string str);
-			
-			public :
-				iterator();
-				~iterator();
-				iterator(iterator &src);
-				iterator &operator= (iterator &src);
-		};
+        // define 'iterator' from default iterator
+        typedef typename std::stack<T>::container_type::iterator iterator;
 
-		iterator begin(void);
-		// iterator end(void);
+        iterator begin();
+        iterator end();
 };
 
+template<typename T>
+std::ostream 	&operator<<(std::ostream &o, MutantStack<T> &src);
+
 #include "MutantStack.tpp"
-
-
-// LUCAS HIS VERSION
-// template<class T, class C = std::deque<T> >
-// class MutantStack: public std::stack<T, C> {
-// 	public:
-// 		typedef typename C::iterator	iterator;
-
-// 		MutantStack(): std::stack<T, C>() {}
-// 		MutantStack(const MutantStack<T, C> &other): std::stack<T, C>(other) {};
-// 		virtual ~MutantStack() {}
-// 		using std::stack<T, C>::operator=;
-
-// 		iterator begin() throw() {
-// 			return std::stack<T, C>::c.begin();
-// 		}
-
-// 		iterator end() throw() {
-// 			return std::stack<T, C>::c.end();
-// 		}
-// };
 
 #endif 

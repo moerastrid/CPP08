@@ -15,15 +15,15 @@ int	exercise_test(){
 	mstack.push(737);
 	mstack.push(0);
 
-	// MutantStack<int>::iterator it = mstack.begin();
-	// MutantStack<int>::iterator ite = mstack.end();
-	// ++it;
-	// --it;
-	// while (it != ite) {
-	// 	std::cout << "\x1B[35m" << *it << "\x1B[0m" << std::endl;
-	// 	++it;
-	// }
-	// std::stack<int> s(mstack);
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	++it;
+	--it;
+	while (it != ite) {
+		std::cout << "\x1B[35m" << *it << "\x1B[0m" << std::endl;
+		++it;
+	}
+	std::stack<int> s(mstack);
 	return 0;
 }
 
@@ -54,29 +54,34 @@ int	exercise_list(){
 	return 0;
 }
 
-
 int main() {
 	MutantStack<int>	test;
 	MutantStack<int>	two(test);
 
-	test = two;
-	for (int i(0); i < 60; i++) {
-		test.push(i * 3);
-	}
+	test.push(5);
+	std::cout << "start\n";
+	std::cout << "test\n";
+	if (test.empty() == true)
+		std::cout << "empty\n";
+	else
+		std::cout << test.top() << std::endl;
+	std::cout << "two\n";
+	if (two.empty() == true)
+		std::cout << "empty\n";
+	else
+		std::cout << two.top() << std::endl;
+	two = test;
+	std::cout << "two\n";
+	if (two.empty() == true)
+		std::cout << "empty\n";
+	else
+		std::cout << two.top() << std::endl;
 
-	MutantStack<int>::iterator it = test.begin();
-	std::cout << &it << std::endl;
-	std::cout << *it << std::endl;
-	it++;
-	std::cout << *it << std::endl;
-	it++;
-	std::cout << *it << std::endl;
-	std::cout << &it << std::endl;
-
-	
+	std::cout << test << std::endl;
 
 	std::cout << std::endl << "exercise test mutant stack" << std::endl;
 	exercise_test();
 	std::cout << std::endl << "exercise test list" << std::endl;
 	exercise_list();
+	return (0);
 }
