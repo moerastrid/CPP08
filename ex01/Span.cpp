@@ -3,7 +3,8 @@
 // PRIVATE
 
 void Span::message(std::string str) {
-	std::cout << "\x1B[36m" << "SPAN - " << str << "\x1B[0m" << std::endl;
+	(void)str;
+	//std::cout << "\x1B[36m" << "SPAN - " << str << "\x1B[0m" << std::endl;
 }
 
 Span::Span() {
@@ -32,7 +33,7 @@ Span::~Span () {
 }
 
 void	Span::addNumber(int n) {
-	// message("addNumber");
+	message("addNumber");
 	if (_store.size() == _max_size)
 		throw SpanOverloadException();
 	_store.push_back(n);

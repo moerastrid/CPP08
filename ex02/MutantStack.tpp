@@ -5,7 +5,8 @@
 
 template <typename T>
 void    MutantStack<T>::message(std::string str) {
-    std::cout << "\x1B[36m" << "Mutant Stack - " << str << "\x1B[0m" << std::endl;
+	(void)str;
+    //std::cout << "\x1B[36m" << "Mutant Stack - " << str << "\x1B[0m" << std::endl;
 }
 
 template <typename T>
